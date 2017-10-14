@@ -1,33 +1,25 @@
-import basicMath.*;
 
 public class Main {
+
     public static void main(String[] args) {
 
 
-        //test
-        /*
-        Matrix m = new Matrix(2, 2);
-        Vector v = new Vector(2);
+        NeuralNetwork nn = new NeuralNetwork(3, 4, 2);
+        //Pi/3 ist ganz oben und -pi/3 ist ganz unten
+        double winkel = (Math.PI * 2 / 3 * Math.random()) - Math.PI / 3;
+        double betrag = 50* Math.random();
+        double[] erwuenschterZug;
+        //todo hier noch n bischen zwug machen
+        //todo jetzt noch trainieren
 
-        double[] inpv = new double[2];
-        inpv[0] = 1;
-        inpv[1] = 1;
+        double[] inp = {winkel, betrag, 3};
+        double[] outp = nn.fullBatchTraining(inp);
 
-        double[][] inpmat = new double[2][2];
-        inpmat[0][0] = 2;
-        inpmat[1][0] = 2;
-        inpmat[0][1] = 3;
-        inpmat[1][1] = 3;
-
-
-        m.setValues(inpmat);
-        v.setValues(inpv);
-
-        String s = "";
-        for (int i = 0; i < Matrix.dotProductVM(v, m).length; i++) {
-            s += " " + Matrix.dotProductVM(v, m)[i];
+        for (int i = 0; i < outp.length; i++) {
+            System.out.println(outp[i]);
         }
-        System.out.println(s);
-*/
+
     }
+
+
 }
